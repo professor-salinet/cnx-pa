@@ -8,454 +8,921 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="./index.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <h1 class="text-center">CNX PA</h1>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card custom-card shadow p-3">
-                    <h4>IDENTIFICAÇÃO OPERADOR:</h4>
+    <div class="container-fluid">
+        <div class="row justify-content-center w-100">
+            <div class="col-md-auto">
+                <div class="container-fluid card custom-card shadow p-3">
+                    <h1 class="text-center p-2">CNX PA</h1>
+                </div>
+
+                <div class="container-fluid card custom-card shadow p-3">
+                    <h4>IDENTIFICAÇAO OPERADOR:</h4>
                     <div class="form-section">
-                        <div class="row">
+                        <div class="row w-100">
                             <div class="col-md-auto">
                                 <label for="txt_nome_operador">Nome:</label>
                                 <div class="input-group">
+                                    <button type="button" class="btn btn-dark" id="btn_colar_nome_operador" title="Colar Nome Operador">
+                                        <i class="fa-solid fa-paste"></i>
+                                    </button>
                                     <input type="text" class="form-control" id="txt_nome_operador">
-                                    <button type="button" class="btn btn-primary" id="btn_limpar_nome_operador">
-                                        <i class="fa-solid fa-eraser" title="Limpar Nome Operador"></i>
+                                    <button type="button" class="btn btn-dark" id="btn_limpar_nome_operador" title="Limpar Nome Operador">
+                                        <i class="fa-solid fa-eraser"></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
+                <div class="container-fluid card custom-card shadow p-3">
                     <h4>LEITURA (Análise Simples):</h4>
                     <div class="form-section">
-                        <div class="row">
+                        <div class="row w-100">
                             <div class="col-md-auto">
                                 <label for="txt_leitura_atual">Leitura Atual:</label>
                                 <div class="input-group">
-                                <div class="input-group">
+                                    <button type="button" class="btn btn-dark" id="btn_colar_leitura_atual" title="Colar Leitura Atual">
+                                        <i class="fa-solid fa-paste"></i>
+                                    </button>
                                     <input type="number" class="form-control" id="txt_leitura_atual" min="0" step=".001">
-                                    <button type="button" class="btn btn-primary" id="btn_limpar_leitura_atual">
+                                    <button type="button" class="btn btn-dark" id="btn_limpar_leitura_atual">
                                         <i class="fa-solid fa-eraser" title="Limpar Leitura Atual"></i>
                                     </button>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row w-100">
                             <div class="col-md-auto">
                                 <label for="txt_leitura_anterior">Leitura Anterior:</label>
                                 <div class="input-group">
+                                    <button type="button" class="btn btn-dark" id="btn_colar_leitura_anterior" title="Colar Leitura Anterior">
+                                        <i class="fa-solid fa-paste"></i>
+                                    </button>
                                     <input type="number" class="form-control" id="txt_leitura_anterior" min="0" step=".001">
-                                    <button type="button" class="btn btn-primary" id="btn_limpar_leitura_anterior">
-                                        <i class="fa-solid fa-eraser" title="Limpar Leitura Anterior"></i>
+                                    <button type="button" class="btn btn-dark" id="btn_limpar_leitura_anterior" title="Limpar Leitura Anterior">
+                                        <i class="fa-solid fa-eraser"></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
+                <div class="container-fluid card custom-card shadow p-3">
                     <h4>DADOS PRÉ-DEFINIDOS:</h4>
                     <div class="form-section">
-                        <div class="row">
+                        <div class="row w-100">
                             <div class="col-md-auto">
                                 <label for="txt_fator">Fator:</label>
                                 <input type="number" class="form-control" min="0" id="txt_fator" value="2.3" step=".1">
                             </div>
-                            <div class="col-md-auto">
+                        </div>
+                        <div class="row w-100">
+                            <div class="col-lg-auto">
                                 <label for="txt_meses">Meses:</label>
                                 <input type="number" class="form-control" min="0" max="12" id="txt_meses" value="6">
                             </div>
-                            <div class="col-md-auto">
-                                <label for="txt_preco_unitario">Preço Unitário:</label>
+                        </div>
+                        <div class="row w-100">
+                            <div class="col-lg-auto">
+                                <label for="txt_preco_unitario">Preço Unitário (R$ ponto "." decimal):</label>
                                 <input type="number" class="form-control" min="0" id="txt_preco_unitario" value="1.454" step=".001">
                             </div>
                         </div>
                     </div>
-    
+                </div>
+
+                <div class="container-fluid card custom-card shadow p-3">
                     <h4>ANÁLISE DE CONSUMO:</h4>
                     <div class="form-section">
-                        <div class="row">
+                        <div class="row w-100">
                             <div class="col-md-auto">
                                 <label for="txt_m3">M3:</label>
                                 <input type="text" class="form-control" id="txt_m3" readonly>
                             </div>
+                        </div>
+                        <div class="row w-100">
                             <div class="col-md-auto">
                                 <label for="txt_consumo">Consumo:</label>
                                 <input type="text" class="form-control" id="txt_consumo" readonly>
                             </div>
+                        </div>
+                        <div class="row w-100">
                             <div class="col-md-auto">
                                 <label for="txt_valor_devido">Valor Devido:</label>
                                 <input type="text" class="form-control" id="txt_valor_devido" readonly>
                             </div>
                         </div>
                     </div>
+                </div>
 
+                <div class="container-fluid card custom-card shadow p-3">
                     <div class="form-section">
-                        <div class="row">
-                            <div class="col-md-auto">
-                                <a href="#div_analise_completa" class="form-control btn btn-primary" id="btn_preencher" data-bs-toggle="collapse" aria-expanded="false" aria-controls="div_analise_completa">
+                        <div class="row w-100">
+                            <div class="col-md-auto mb-3">
+                                <a href="#div_analise_completa" class="form-control btn btn-dark" id="btn_preencher" data-bs-toggle="collapse" aria-expanded="false" aria-controls="div_analise_completa">
                                     Análise Completa <i class="fa-solid fa-pencil"></i>
                                 </a>
                             </div>
+                        </div>
 
-                            <div class="container collapse border border-dark" id="div_analise_completa" style="padding-top: 15px; padding-bottom: 15px; border-radius: 5px">
+                        <div class="container-fluid collapse border border-dark" id="div_analise_completa" style="padding-top: 15px; padding-bottom: 15px;">
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <label class="form-select-label" for="sel_tabulacao">Tabulação?</label>
+                                    <select class="form-select" id="sel_tabulacao">
+                                        <option value="0" selected>Selecione aqui</option>
+                                        <option value="Segunda via de demonstrativo">Segunda via de demonstrativo</option>
+                                        <option value="Abastecimento">Abastecimento</option>
+                                        <option value="Alteração de dados e sem débitos">Alteração de dados e sem débitos</option>
+                                        <option value="Análise de consumo">Análise de consumo</option>
+                                        <option value="Análise de consumo não aceita">Análise de consumo não aceita</option>
+                                        <option value="Atraso na religação">Atraso na religação</option>
+                                        <option value="Bloqueio de medidor">Bloqueio de medidor</option>
+                                        <option value="Boleto de abastecimento">Boleto de abastecimento</option>
+                                        <option value="Carta de quitação">Carta de quitação</option>
+                                        <option value="Cobrança de taxa de leitura">Cobrança de taxa de leitura</option>
+                                        <option value="Código de barras">Código de barras</option>
+                                        <option value="Comprovante de pagamento">Comprovante de pagamento</option>
+                                        <option value="Consultas de débito">Consultas de débito</option>
+                                        <option value="Conta não emitida">Conta não emitida</option>
+                                        <option value="Corte indevido">Corte indevido</option>
+                                        <option value="Débito automático">Débito automático</option>
+                                        <option value="Demonstrativo ilegível">Demonstrativo ilegível</option>
+                                        <option value="Desbloqueio de medidor">Desbloqueio de medidor</option>
+                                        <option value="Desvinculação de dados">Desvinculação de dados</option>
+                                        <option value="Dúvida sobre corte">Dúvida sobre corte</option>
+                                        <option value="Dúvidas sobre contrato">Dúvidas sobre contrato</option>
+                                        <option value="Dúvidas sobre notificação">Dúvidas sobre notificação</option>
+                                        <option value="Erro de leitura">Erro de leitura</option>
+                                        <option value="Inclusão de novo morador">Inclusão de novo morador</option>
+                                        <option value="Medidor invertido">Medidor invertido</option>
+                                        <option value="Negociação">Negociação</option>
+                                        <option value="Pagamento em duplicidade">Pagamento em duplicidade</option>
+                                        <option value="Parcelamento de contas">Parcelamento de contas</option>
+                                        <option value="Primeira leitura">Primeira leitura</option>
+                                        <option value="Pedido emergencial (D0, D1)">Pedido emergencial (D0, D1)</option>
+                                        <option value="Problemas com acesso ao portal">Problemas com acesso ao portal</option>
+                                        <option value="Reclamação do preço">Reclamação do preço</option>
+                                        <option value="Reclamação do prestador de serviço">Reclamação do prestador de serviço</option>
+                                        <option value="Releitura">Releitura</option>
+                                        <option value="Religação">Religação</option>
+                                        <option value="Rescisão de contrato (churn, não tratamos isso)">Rescisão de contrato (churn, não tratamos isso)</option>
+                                        <option value="Retirada de PFIN (baixa de pendência financeira dos órgãos de proteção de crédito, não fazemos)">Retirada de PFIN (baixa de pendência financeira dos órgãos de proteção de crédito, não fazemos)</option>
+                                        <option value="Status do pedido (Roadnet)">Status do pedido (Roadnet)</option>
+                                        <option value="Suporte de acesso ao portal">Suporte de acesso ao portal</option>
+                                        <option value="Troca de medidor">Troca de medidor</option>
+                                        <option value="Troca de titularidade">Troca de titularidade</option>
+                                        <option value="Vazamento">Vazamento</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="cbx_inadimplente">
-                                        <label class="form-check-label" for="cbx_inadimplente">Inadimplente?</label>
+                                        <input class="form-check-input" type="checkbox" role="switch" id="cbx_troca_titularidade" href="#div_troca_titularidade" data-bs-toggle="collapse" aria-expanded="false" aria-controls="div_troca_titularidade">
+                                        <label class="form-check-label" for="cbx_troca_titularidade">Troca de Titularidade?</label>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="container-fluid collapse" id="div_troca_titularidade" style="padding-top: 15px; padding-bottom: 15px;">
+                                <div class="row w-100">
+                                    <div class="col-md-auto mb-3">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="cbx_desvinculacao_unidade">
+                                            <label class="form-check-label" for="cbx_desvinculacao_unidade">Desvinculação de Unidade?</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row w-100">
+                                    <div class="col-md-auto mb-3">
+                                        <label for="txt_nome_novo_morador">Nome Novo Morador:</label>
+                                        <div class="input-group">
+                                            <button type="button" class="btn btn-dark" id="btn_colar_nome_novo_morador" title="Colar Nome Novo Morador">
+                                                <i class="fa-solid fa-paste"></i>
+                                            </button>
+                                            <input type="text" class="form-control" id="txt_nome_novo_morador">
+                                            <button type="button" class="btn btn-dark" id="btn_limpar_nome_novo_morador" title="Limpar Nome Novo Morador">
+                                                <i class="fa-solid fa-eraser"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="cbx_cobranca_taxas_multa">
-                                        <label class="form-check-label" for="cbx_cobranca_taxas_multa">Há Cobrança de Taxas/Multa?</label>
+                                        <input class="form-check-input" type="checkbox" role="switch" id="cbx_tem_sinistro" href="#div_sinistro" data-bs-toggle="collapse" aria-expanded="false" aria-controls="div_sinistro">
+                                        <label class="form-check-label" for="cbx_tem_sinistro">Tem Sinistro?</label>
                                     </div>
                                 </div>
-                                <div class="col-md-auto mb-3">
-                                    <label for="txt_nome_cliente">Nome Cliente:</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="txt_nome_cliente">
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_nome_cliente">
-                                            <i class="fa-solid fa-eraser" title="Limpar Nome Cliente"></i>
-                                        </button>
+                            </div>
+                            <div class="container-fluid collapse" id="div_sinistro" style="padding-top: 15px; padding-bottom: 15px;">
+                                <div class="row w-100">
+                                    <div class="col-md-auto mb-3">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="cbx_tem_vitima">
+                                            <label class="form-check-label" for="cbx_tem_vitima">Tem Vítima?</label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-auto mb-3">
-                                    <label for="txt_cod_sap_cliente">Código SAP Cliente:</label>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" id="txt_cod_sap_cliente" min="0" max="9999999999">
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_cod_sap_cliente">
-                                            <i class="fa-solid fa-eraser" title="Limpar Código SAP Cliente"></i>
-                                        </button>
+                                <div class="row w-100">
+                                    <div class="col-md-auto mb-3">
+                                        <label for="txt_numero_boletim_ocorrencia">Número do Boletim de Ocorrência:</label>
+                                        <div class="input-group">
+                                            <button type="button" class="btn btn-dark" id="btn_colar_numero_boletim_ocorrencia" title="Colar Número do Boletim de Ocorrência">
+                                                <i class="fa-solid fa-paste"></i>
+                                            </button>
+                                            <input type="text" class="form-control" id="txt_numero_boletim_ocorrencia">
+                                            <button type="button" class="btn btn-dark" id="btn_limpar_numero_boletim_ocorrencia" title="Limpar Número do Boletim de Ocorrência">
+                                                <i class="fa-solid fa-eraser"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-auto mb-3">
-                                    <label for="txt_num_caso">Número do Caso:</label>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" min="0" id="txt_num_caso">
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_num_caso">
-                                            <i class="fa-solid fa-eraser" title="Limpar Número do Caso"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-md-auto mb-3">
-                                    <label for="txt_data_demonstrativo_reclamado">Data Demonstrativo Reclamado:</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="txt_data_demonstrativo_reclamado">
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_data_demonstrativo_reclamado">
-                                            <i class="fa-solid fa-eraser" title="Limpar Demonstrativo Reclamado"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-md-auto mb-3">
-                                    <label>Tipo de Utilização:</label>
-                                </div>
-                                <div class="col-md-auto mb-3">
-                                    <input type="checkbox" class="btn-check" id="cbx_fogao" autocomplete="off">
-                                    <label class="btn btn-secondary" for="cbx_fogao">
-                                        Fogão
-                                        <i class="fa-solid fa-fire"></i>
-                                    </label>
-                                    <input type="checkbox" class="btn-check" id="cbx_chuveiro" autocomplete="off">
-                                    <label class="btn btn-secondary" for="cbx_chuveiro">
-                                        Chuveiro
-                                        <i class="fa-solid fa-shower"></i>
-                                    </label>
-                                    <input type="checkbox" class="btn-check" id="cbx_outros" autocomplete="off" href="#div_tipo_outros" data-bs-toggle="collapse" aria-expanded="false" aria-controls="div_analise_completa">
-                                    <label class="btn btn-secondary" for="cbx_outros">
-                                        Outros:
-                                        <i class="fa-solid fa-paperclip"></i>
-                                    </label>
-                                </div>
-                                <div class="col-md-auto container collapse" id="div_tipo_outros" style="padding-top: 15px; padding-bottom: 15px; border-radius: 5px">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="txt_tipo_outros" placeholder="Especifique aqui o(s) tipo(s)">
-                                        <button type="button" class="btn btn-primary" id="btn_tipo_outros">
-                                            <i class="fa-solid fa-eraser" title="Limpar Outros Especificar"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-md-auto mb-3">
-                                    <label for="txt_ano_medidor">Ano Medidor:</label>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" id="txt_ano_medidor" min="1950" max="2025">
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_ano_medidor">
-                                            <i class="fa-solid fa-eraser" title="Limpar Ano Medidor"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-md-auto mb-3">
-                                    <label for="txt_valor_demonstrativo_reclamado">Valor Demonstrativo Reclamado:</label>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" id="txt_valor_demonstrativo_reclamado" min="0">
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_valor_demonstrativo_reclamado">
-                                            <i class="fa-solid fa-eraser" title="Limpar Valor Demonstrativo Reclamado"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-md-auto mb-3">
-                                    <label for="txt_intervalo_leitura">Intervalo de Leitura (em Dias):</label>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" id="txt_intervalo_leitura" min="0">
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_intervalo_leitura">
-                                            <i class="fa-solid fa-eraser" title="Limpar Intervalo de Leitura"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch" id="cbx_risco_morte">
                                         <label class="form-check-label" for="cbx_risco_morte">Risco de Morte?</label>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="cbx_stript_seguranca" href="#div_stript_seguranca" data-bs-toggle="collapse" aria-expanded="false" aria-controls="div_stript_seguranca">
+                                        <label class="form-check-label" for="cbx_stript_seguranca">Script de Segurança Informado?</label>
+                                    </div>
+                                    <div class="container-fluid collapse" id="div_stript_seguranca" style="padding-top: 15px; padding-bottom: 15px;">
+                                        <div class="row w-100">
+                                            <div class="col-md-auto text-warning bg-dark p-3">
+                                                <i class="fa-solid fa-check"></i> NÃO LOCALIZAR O VAZAMENTO <br><hr>
+                                                <i class="fa-solid fa-check"></i> JAMAIS TENTAR REPARAR <br><hr>
+                                                <i class="fa-solid fa-check"></i> NÃO USE FÓSFORO <br><hr>
+                                                <i class="fa-solid fa-check"></i> NÃO USE ISQUEIRO <br><hr>
+                                                <i class="fa-solid fa-check"></i> NÃO FUMAR <br><hr>
+                                                <i class="fa-solid fa-check"></i> NÃO UTILIZAR INTERRUPTORES <br><hr>
+                                                <i class="fa-solid fa-check"></i> NÃO UTILIZAR DISJUNTORES <br><hr>
+                                                <i class="fa-solid fa-check"></i> NÃO DESLIGAR/LIGAR LUZES <br><hr>
+                                                <i class="fa-solid fa-check"></i> NÃO DESLIGAR/ACIONAR CAMPAINHA <br><hr>
+                                                <i class="fa-solid fa-check"></i> NÃO UTILIZAR INTERFONE <br><hr>
+                                                <i class="fa-solid fa-check"></i> NÃO UTILIZAR FOGÃO <br><hr>
+                                                <i class="fa-solid fa-check"></i> NÃO UTILIZAR CHUVEIRO <br><hr>
+                                                <i class="fa-solid fa-check"></i> Distanciar celulares do vazamento <br><hr>
+                                                <i class="fa-solid fa-check"></i> Distanciar eletrônicos do vazamento <br><hr>
+                                                <i class="fa-solid fa-check"></i> Registro do medidor fechado <br><hr>
+                                                <i class="fa-solid fa-check"></i> Verificar ano fabricação medidor <br><hr>
+                                                <i class="fa-solid fa-check"></i> Janelas/Portas abertas <br><hr>
+                                                <i class="fa-solid fa-check"></i> Local evacuado (pessoas e pets) <br><hr>
+                                                <i class="fa-solid fa-check"></i> Subir para último andar <br><hr>
+                                                <i class="fa-solid fa-check"></i> Síndico acionado <br><hr>
+                                                <i class="fa-solid fa-check"></i> Ligou para 193 - Bombeiros (Longe do foco) <br><hr>
+                                                <i class="fa-solid fa-check"></i> Se houver vítima, ligar 192 - SAMU (Longe do foco)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch" id="cbx_teste_fuga">
                                         <label class="form-check-label" for="cbx_teste_fuga">Teste de Fuga Realizado?</label>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
-                                    <label class="form-check-label">Condição de Leitura:</label>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="cbx_falta_documento">
+                                        <label class="form-check-label" for="cbx_falta_documento">Falta Algum Documento?</label>
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="cbx_inadimplente" href="#div_inadimplencia" data-bs-toggle="collapse" aria-expanded="false" aria-controls="div_inadimplencia">
+                                        <label class="form-check-label" for="cbx_inadimplente">Inadimplente?</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid collapse" id="div_inadimplencia" style="padding-top: 15px; padding-bottom: 15px;">
+                                <div class="row w-100">
+                                    <div class="col-md-auto mb-3">
+                                        <label for="txt_dias_atraso">Dias de Atraso:</label>
+                                        <div class="input-group">
+                                            <button type="button" class="btn btn-dark" id="btn_colar_dias_atraso" title="Colar Dias de atraso">
+                                                <i class="fa-solid fa-paste"></i>
+                                            </button>
+                                            <input type="number" class="form-control" id="txt_dias_atraso">
+                                            <button type="button" class="btn btn-dark" id="btn_limpar_dias_atraso" title="Limpar Dias de atraso">
+                                                <i class="fa-solid fa-eraser"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row w-100">
+                                    <div class="col-md-auto mb-3">
+                                        <label for="txt_valor_devido_atrasado">Valor Devido Atrasado:</label>
+                                        <div class="input-group">
+                                            <button type="button" class="btn btn-dark" id="btn_colar_valor_devido_atrasado" title="Colar Valor Devido Atrasado">
+                                                <i class="fa-solid fa-paste"></i>
+                                            </button>
+                                            <input type="number" class="form-control" id="txt_valor_devido_atrasado" step=".01">
+                                            <button type="button" class="btn btn-dark" id="btn_limpar_valor_devido_atrasado" title="Limpar Valor Devido Atrasado">
+                                                <i class="fa-solid fa-eraser"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="cbx_medidor_bloqueado">
+                                        <label class="form-check-label" for="cbx_medidor_bloqueado">Medidor Bloqueado?</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="cbx_cobranca_taxas_multa" href="#div_valor_taxa_multa" data-bs-toggle="collapse" aria-expanded="false" aria-controls="div_valor_taxa_multa">
+                                        <label class="form-check-label" for="cbx_cobranca_taxas_multa">Há cobrança de taxas/multa?</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid collapse" id="div_valor_taxa_multa" style="padding-top: 15px; padding-bottom: 15px;">
+                                <div class="row w-100">
+                                    <div class="col-md-auto mb-3">
+                                        <label for="txt_valor_taxa_multa">Valor Taxa/Multa:</label>
+                                        <div class="input-group">
+                                            <button type="button" class="btn btn-dark" id="btn_colar_valor_taxa_multa" title="Colar Valor Taxa/Multa">
+                                                <i class="fa-solid fa-paste"></i>
+                                            </button>
+                                            <input type="text" class="form-control" id="txt_valor_taxa_multa">
+                                            <button type="button" class="btn btn-dark" id="btn_limpar_valor_taxa_multa" title="Limpar Valor Taxa/Multa">
+                                                <i class="fa-solid fa-eraser"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <label for="txt_nome_cliente">Nome Cliente:</label>
+                                    <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_nome_cliente" title="Colar Nome Cliente">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
+                                        <input type="text" class="form-control" id="txt_nome_cliente">
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_nome_cliente" title="Limpar Nome Cliente">
+                                            <i class="fa-solid fa-eraser"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <label for="txt_cod_sap_cliente">Código SAP Cliente:</label>
+                                    <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_cod_sap_cliente" title="Colar Código SAP Cliente">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
+                                        <input type="number" class="form-control" id="txt_cod_sap_cliente" min="0" max="9999999999">
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_cod_sap_cliente" title="Limpar Código SAP Cliente">
+                                            <i class="fa-solid fa-eraser"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <label for="txt_num_caso">Número do Caso:</label>
+                                    <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_num_caso" title="Colar Número do Caso">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
+                                        <input type="number" class="form-control" min="0" id="txt_num_caso">
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_num_caso" title="Limpar Número do Caso">
+                                            <i class="fa-solid fa-eraser"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <label for="txt_data_demonstrativo_reclamado">Data Demonstrativo Reclamado:</label>
+                                    <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_data_demonstrativo_reclamado" title="Colar Data Demonstrativo Reclamado">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
+                                        <input type="text" class="form-control" id="txt_data_demonstrativo_reclamado">
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_data_demonstrativo_reclamado" title="Limpar Data Demonstrativo Reclamado">
+                                            <i class="fa-solid fa-eraser"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <label for="txt_intervalo_leitura_dias">Intervalo de Leitura (em dias):</label>
+                                    <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_intervalo_leitura_dias" title="Colar Intervalo de Leitura (em dias)">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
+                                        <input type="number" class="form-control" id="txt_intervalo_leitura_dias">
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_intervalo_leitura_dias" title="Limpar Intervalo de Leitura (em dias)">
+                                            <i class="fa-solid fa-eraser"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <label for="txt_media_consumo_diario">Média de consumo diário (em M3):</label>
+                                    <input type="text" class="form-control" id="txt_media_consumo_diario" readonly>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <label>Tipo de utilização:</label>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <input type="checkbox" class="btn-check" id="cbx_fogao" autocomplete="off">
+                                    <label class="btn btn-info" for="cbx_fogao">
+                                        Fogão
+                                        <i class="fa-solid fa-fire"></i>
+                                    </label>
+                                    <input type="checkbox" class="btn-check" id="cbx_chuveiro" autocomplete="off">
+                                    <label class="btn btn-info" for="cbx_chuveiro">
+                                        Chuveiro
+                                        <i class="fa-solid fa-shower"></i>
+                                    </label>
+                                    <input type="checkbox" class="btn-check" id="cbx_outros" autocomplete="off" href="#div_tipo_outros" data-bs-toggle="collapse" aria-expanded="false" aria-controls="div_tipo_outros">
+                                    <label class="btn btn-info" for="cbx_outros">
+                                        Outros:
+                                        <i class="fa-solid fa-paperclip"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-auto container-fluid collapse" id="div_tipo_outros" style="padding-top: 15px; padding-bottom: 15px;">
+                                <div class="row w-100">
+                                    <div class="col-md-auto mb-3">
+                                        <div class="input-group">
+                                            <button type="button" class="btn btn-dark" id="btn_colar_tipo_outros" title="Colar Outros Especificar">
+                                                <i class="fa-solid fa-paste"></i>
+                                            </button>
+                                            <input type="text" class="form-control" id="txt_tipo_outros" placeholder="Especifique aqui o(s) tipo(s)">
+                                            <button type="button" class="btn btn-dark" id="btn_limpar_tipo_outros" title="Limpar Outros Especificar">
+                                                <i class="fa-solid fa-eraser"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <label for="txt_ano_medidor">Ano Medidor:</label>
+                                    <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_ano_medidor" title="Colar Ano Medidor">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
+                                        <input type="number" class="form-control" id="txt_ano_medidor" min="1950" max="2025">
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_ano_medidor" title="Limpar Ano Medidor">
+                                            <i class="fa-solid fa-eraser"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <label for="txt_valor_demonstrativo_reclamado">Valor Demonstrativo Reclamado:</label>
+                                    <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_valor_demonstrativo_reclamado" title="Colar Valor Demonstrativo Reclamado">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
+                                        <input type="number" class="form-control" id="txt_valor_demonstrativo_reclamado" min="0">
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_valor_demonstrativo_reclamado" title="Limpar Valor Demonstrativo Reclamado">
+                                            <i class="fa-solid fa-eraser"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <label class="form-check-label">Condição de leitura:</label>
+                                </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <input type="radio" class="btn-check" name="rdg_leitura" id="rdg_leitura_normal" autocomplete="off" checked>
-                                    <label class="btn btn-secondary" for="rdg_leitura_normal">
+                                    <label class="btn btn-info" for="rdg_leitura_normal">
                                         Normal
                                         <i class="fa-solid fa-check"></i>
                                     </label>
                                     <input type="radio" class="btn-check" name="rdg_leitura" id="rdg_leitura_media" autocomplete="off">
-                                    <label class="btn btn-secondary" for="rdg_leitura_media">
+                                    <label class="btn btn-info" for="rdg_leitura_media">
                                         Média
                                         <i class="fa-solid fa-layer-group"></i>
                                     </label>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label class="form-check-label">Condição de Leitura Anterior:</label>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <input type="radio" class="btn-check" name="rdg_leitura_anterior" id="rdg_leitura_anterior_normal" autocomplete="off" checked>
-                                    <label class="btn btn-secondary" for="rdg_leitura_anterior_normal">
+                                    <label class="btn btn-info" for="rdg_leitura_anterior_normal">
                                         Normal
                                         <i class="fa-solid fa-check"></i>
                                     </label>
                                     <input type="radio" class="btn-check" name="rdg_leitura_anterior" id="rdg_leitura_anterior_media" autocomplete="off">
-                                    <label class="btn btn-secondary" for="rdg_leitura_anterior_media">
+                                    <label class="btn btn-info" for="rdg_leitura_anterior_media">
                                         Média
                                         <i class="fa-solid fa-layer-group"></i>
                                     </label>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_leitura_anterior_evidencia">Medição/Leitura Anterior na Evidência:</label>
                                     <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_leitura_anterior_evidencia" title="Colar Medição/Leitura Anterior na Evidência">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
                                         <input type="number" class="form-control" id="txt_leitura_anterior_evidencia" min="0" step=".001">
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_leitura_anterior_evidencia">
-                                            <i class="fa-solid fa-eraser" title="Limpar Medição/leitura anterior na evidência"></i>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_leitura_anterior_evidencia" title="Limpar Medição/Leitura Anterior na Evidência">
+                                            <i class="fa-solid fa-eraser"></i>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="cbx_evidencia_leitura_disponivel">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="cbx_evidencia_leitura_disponivel" href="#div_evidencia_leitura_disponivel" data-bs-toggle="collapse" aria-expanded="false" aria-controls="div_evidencia_leitura_disponivel">
                                         <label class="form-check-label" for="cbx_evidencia_leitura_disponivel">Evidência de Leitura Disponível?</label>
                                     </div>
                                 </div>
-                                <div class="col-md-auto mb-3">
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="cbx_evidencia_leitura_correta">
-                                        <label class="form-check-label" for="cbx_evidencia_leitura_correta">Se Evidência Disponível, Leitura Correta?</label>
+                            </div>
+                            <div class="col-md-auto container-fluid collapse" id="div_evidencia_leitura_disponivel" style="padding-top: 15px; padding-bottom: 15px;">
+                                <div class="row w-100">
+                                    <div class="col-md-auto mb-3">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch" id="cbx_evidencia_leitura_correta">
+                                            <label class="form-check-label" for="cbx_evidencia_leitura_correta">Leitura Evidência Disponível Correta?</label>
+                                        </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_leitura_anterior_evidencia">Leitura no Demonstrativo:</label>
-                                    <div class="input-group mb-3">
+                                    <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_leitura_demonstrativo" title="Colar Leitura no Demonstrativo">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
                                         <input type="number" class="form-control" id="txt_leitura_demonstrativo" min="0" step=".001">
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_leitura_demonstrativo">
-                                            <i class="fa-solid fa-eraser" title="Limpar Leitura no Demonstrativo"></i>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_leitura_demonstrativo" title="Limpar Leitura no Demonstrativo">
+                                            <i class="fa-solid fa-eraser"></i>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_leitura_anterior_evidencia">Leitura na Evidência:</label>
                                     <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_leitura_evidencia" title="Colar Leitura no Demonstrativo">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
                                         <input type="number" class="form-control" id="txt_leitura_evidencia" min="0" step=".001">
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_leitura_evidencia">
-                                            <i class="fa-solid fa-eraser" title="Limpar Leitura na evidência"></i>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_leitura_evidencia" title="Limpar Leitura na Evidência">
+                                            <i class="fa-solid fa-eraser"></i>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_leitura_anterior_evidencia">Média de Consumo dos Últimos 6 Meses em M3:</label>
                                     <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_media_seis_meses" title="Colar Média de Consumo dos Últimos 6 Meses em M3">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
                                         <input type="number" class="form-control" id="txt_media_seis_meses" min="0" step=".001">
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_media_seis_meses">
-                                            <i class="fa-solid fa-eraser" title="Limpar Média de Consumo dos Últimos 6 Meses em M3"></i>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_media_seis_meses" title="Limpar Média de Consumo dos Últimos 6 Meses em M3">
+                                            <i class="fa-solid fa-eraser"></i>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_leitura_anterior_evidencia">Consumo do Demonstrativo Reclamado em M3:</label>
                                     <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_consumo_demonstrativo_reclamado" title="Colar Consumo do Demonstrativo Reclamado em M3">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
                                         <input type="number" class="form-control" id="txt_consumo_demonstrativo_reclamado" min="0" step=".0001">
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_consumo_demonstrativo_reclamado">
-                                            <i class="fa-solid fa-eraser" title="Limpar Consumo do Demonstrativo Reclamado em M3"></i>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_consumo_demonstrativo_reclamado" title="Limpar Consumo do Demonstrativo Reclamado em M3">
+                                            <i class="fa-solid fa-eraser"></i>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label class="form-check-label">Tipo Cliente:</label>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <input type="radio" class="btn-check" name="rdg_tipo_cliente" id="rdg_tipo_cliente_residencial" autocomplete="off" checked>
-                                    <label class="btn btn-secondary" for="rdg_tipo_cliente_residencial">
+                                    <label class="btn btn-info" for="rdg_tipo_cliente_residencial">
                                         Residencial
                                         <i class="fa-solid fa-house"></i>
                                     </label>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
                                     <input type="radio" class="btn-check" name="rdg_tipo_cliente" id="rdg_tipo_cliente_comercial" autocomplete="off">
-                                    <label class="btn btn-secondary" for="rdg_tipo_cliente_comercial">
+                                    <label class="btn btn-info" for="rdg_tipo_cliente_comercial">
                                         Comercial
                                         <i class="fa-solid fa-briefcase"></i>
                                     </label>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
                                     <input type="radio" class="btn-check" name="rdg_tipo_cliente" id="rdg_tipo_cliente_shopping" autocomplete="off">
-                                    <label class="btn btn-secondary" for="rdg_tipo_cliente_shopping">
+                                    <label class="btn btn-info" for="rdg_tipo_cliente_shopping">
                                         Shopping
                                         <i class="fa-solid fa-cart-shopping"></i>
                                     </label>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_leitura_anterior_evidencia">Bloco / Apartamento:</label>
                                     <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_bloco_apartamento" title="Colar Bloco / Apartamento">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
                                         <input type="text" class="form-control" id="txt_bloco_apartamento">
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_bloco_apartamento">
-                                            <i class="fa-solid fa-eraser" title="Limpar Bloco / Apartamento"></i>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_bloco_apartamento" title="Limpar Bloco / Apartamento">
+                                            <i class="fa-solid fa-eraser"></i>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label class="form-check-label">Entrada Atendimento:</label>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <input type="radio" class="btn-check" name="rdg_entrada_atendimento" id="rdg_entrada_atendimento_voz" autocomplete="off" checked>
-                                    <label class="btn btn-secondary" for="rdg_entrada_atendimento_voz">
+                                    <label class="btn btn-info" for="rdg_entrada_atendimento_voz">
                                         Voz
                                         <i class="fa-solid fa-phone"></i>
                                     </label>
+                                    <a class="btn btn-warning" href="tel:0800 729 7777" target="_blank">0800 729 7777</a>
+                                    <a class="btn btn-warning" href="tel:3004-3002" target="_blank">MI 3004-3002</a>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
                                     <input type="radio" class="btn-check" name="rdg_entrada_atendimento" id="rdg_entrada_atendimento_email" autocomplete="off">
-                                    <label class="btn btn-secondary" for="rdg_entrada_atendimento_email">
+                                    <label class="btn btn-info" for="rdg_entrada_atendimento_email">
                                         Email
                                         <i class="fa-solid fa-envelope"></i>
                                     </label>
+                                    <a class="btn btn-warning" href="mailto:contato@copaenergia.com.br" target="_blank">contato@copaenergia.com.br</a>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
                                     <input type="radio" class="btn-check" name="rdg_entrada_atendimento" id="rdg_entrada_atendimento_portal" autocomplete="off">
-                                    <label class="btn btn-secondary" for="rdg_entrada_atendimento_portal">
+                                    <label class="btn btn-info" for="rdg_entrada_atendimento_portal">
                                         Portal
                                         <i class="fa-solid fa-earth-americas"></i>
                                     </label>
+                                    <a class="btn btn-warning" href="https://mi.copaenergia.com.br/" target="_blank">https://mi.copaenergia.com.br/</a>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
                                     <input type="radio" class="btn-check" name="rdg_entrada_atendimento" id="rdg_entrada_atendimento_whatsapp" autocomplete="off">
-                                    <label class="btn btn-secondary" for="rdg_entrada_atendimento_whatsapp">
+                                    <label class="btn btn-info" for="rdg_entrada_atendimento_whatsapp">
                                         Whatsapp
                                         <i class="fa-brands fa-whatsapp"></i>
                                     </label>
+                                    <a class="btn btn-warning" href="https://wa.me/551130438910" target="_blank">(11) 3043-8910</a>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" role="switch" id="cbx_leitura_alem_limite">
-                                        <label class="form-check-label" for="cbx_leitura_alem_limite">Leitura Além do Limite?</label>
+                                        <label class="form-check-label" for="cbx_leitura_alem_limite">Leitura além do limite?</label>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_leitura_anterior_evidencia">Código do Medidor:</label>
                                     <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_codigo_medidor" title="Colar Código do Medidor">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
                                         <input type="text" class="form-control" id="txt_codigo_medidor">
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_codigo_medidor">
-                                            <i class="fa-solid fa-eraser" title="Limpar Código do Medidor"></i>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_codigo_medidor" title="Limpar Código do Medidor">
+                                            <i class="fa-solid fa-eraser"></i>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_analise_detalhada">Informe a Análise Detalhada:</label>
                                     <div class="input-group">
+                                        <button type="button" class="btn btn-dark" id="btn_colar_analise_detalhada" title="Colar Análise Detalhada">
+                                            <i class="fa-solid fa-paste"></i>
+                                        </button>
                                         <textarea class="form-control" id="txt_analise_detalhada"></textarea>
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_analise_detalhada">
-                                            <i class="fa-solid fa-eraser" title="Limpar Análise Detalhada"></i>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_analise_detalhada" title="Limpar Análise Detalhada">
+                                            <i class="fa-solid fa-eraser"></i>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <button type="button" class="btn btn-danger" id="btn_gerar_email">
+                                        Gerar Email <i class="fa-solid fa-envelope"></i>
+                                    </button>
+                                </div>
+                                <div class="col-md-auto mb-3">
+                                    <button type="button" class="btn btn-danger" id="btn_gerar_sms">
+                                        Gerar SMS <i class="fa-solid fa-phone"></i>
+                                    </button>
+                                </div>
+                                <div class="col-md-auto mb-3">
+                                    <button type="button" class="btn btn-danger" id="btn_gerar_whatsapp">
+                                        Gerar Whatsapp <i class="fa-brands fa-whatsapp"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
+                <div class="container-fluid card custom-card shadow p-3">
                     <div class="form-section">
-                        <div class="row">
+                        <div class="row w-100 mb-3">
                             <div class="col-md-auto mb-3">
-                                <a href="#div_media" class="form-control btn btn-primary" id="btn_preencher"  data-bs-toggle="collapse" aria-expanded="false" aria-controls="div_media">
+                                <a href="#div_media" class="form-control btn btn-dark" id="btn_preencher" data-bs-toggle="collapse" aria-expanded="false" aria-controls="div_media">
                                     Analisar Média <i class="fa-solid fa-list"></i>
                                 </a>
                             </div>
+                        </div>
 
-                            <div class="container collapse border border-dark" id="div_media" style="padding-top: 15px; padding-bottom: 15px; border-radius: 5px">
+                        <div class="container-fluid collapse border border-dark" id="div_media" style="padding-top: 15px; padding-bottom: 15px; border-radius: 5px">
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_valor1">Valor 1:</label>
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="txt_valor1" />
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_valor1">
-                                            <i class="fa-solid fa-eraser" title="Limpar Valor 1"></i>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_valor1" title="Limpar Valor 1">
+                                            <i class="fa-solid fa-eraser"></i>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_valor2">Valor 2:</label>
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="txt_valor2" />
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_valor2">
-                                            <i class="fa-solid fa-eraser" title="Limpar Valor 2"></i>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_valor2" title="Limpar Valor 2">
+                                            <i class="fa-solid fa-eraser"></i>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_valor3">Valor 3:</label>
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="txt_valor3" />
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_valor3">
-                                            <i class="fa-solid fa-eraser" title="Limpar Valor 3"></i>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_valor3" title="Limpar Valor 3">
+                                            <i class="fa-solid fa-eraser"></i>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_valor4">Valor 4:</label>
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="txt_valor4" />
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_valor4">
-                                            <i class="fa-solid fa-eraser" title="Limpar Valor 4"></i>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_valor4" title="Limpar Valor 4">
+                                            <i class="fa-solid fa-eraser"></i>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_valor5">Valor 5:</label>
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="txt_valor5" />
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_valor5">
-                                            <i class="fa-solid fa-eraser" title="Limpar Valor 5"></i>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_valor5" title="Limpar Valor 5">
+                                            <i class="fa-solid fa-eraser"></i>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_valor6">Valor 6:</label>
                                     <div class="input-group">
                                         <input type="number" class="form-control" id="txt_valor6" />
-                                        <button type="button" class="btn btn-primary" id="btn_limpar_valor6">
-                                            <i class="fa-solid fa-eraser" title="Limpar Valor 6"></i>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_valor6" title="Limpar Valor 6">
+                                            <i class="fa-solid fa-eraser"></i>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto mb-3">
                                     <label for="txt_media">Média:</label>
                                     <input type="text" class="form-control" id="txt_media" readonly>
                                 </div>
+                            </div>
+                            <div class="row w-100">
                                 <div class="col-md-auto text-center">
-                                    <button type="button" class="btn btn-secondary" id="btn_calcular_media">
-                                        Calcular Média <i class="fa-solid fa-wand-magic-sparkles" title="Calcular Média"></i>
+                                    <button type="button" class="btn btn-warning" id="btn_calcular_media">
+                                        Calcular Média <i class="fa-solid fa-wand-magic-sparkles"></i>
                                     </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid card custom-card shadow p-3">
+                    <div class="form-section">
+                        <div class="row w-100 mb-3">
+                            <div class="col-md-auto mb-3">
+                                <a href="#div_parcelamento" class="form-control btn btn-dark" id="btn_parcelamento"  data-bs-toggle="collapse" aria-expanded="false" aria-controls="div_parcelamento">
+                                    Parcelamento de Dívida <i class="fas fa-dollar-sign"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="container-fluid collapse border border-dark" id="div_parcelamento" style="padding-top: 15px; padding-bottom: 15px; border-radius: 5px">
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <label for="txt_valor_total_divida">Valor Total da Dívida:</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="txt_valor_total_divida" step=".01"/>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_valor_total_divida" title="Limpar Valor Total da Dívida">
+                                            <i class="fa-solid fa-eraser"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <label for="txt_quantidade_parcelas">Quantidade de Parcelas:</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="txt_quantidade_parcelas" min="1" max="10"/>
+                                        <button type="button" class="btn btn-dark" id="btn_limpar_quantidade_parcelas" title="Limpar Quantidade de Parcelas">
+                                            <i class="fa-solid fa-eraser"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row w-100">
+                                <div class="col-md-auto mb-3">
+                                    <label for="txt_valor_parcela">Valor da Parcela:</label>
+                                    <input type="text" class="form-control" id="txt_valor_parcela" readonly>
                                 </div>
                             </div>
                         </div>
@@ -469,5 +936,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./index.js"></script>
+    <script src="./notificacao.js"></script>
 </body>
 </html>
