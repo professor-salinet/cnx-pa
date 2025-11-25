@@ -1,7 +1,7 @@
 const resultados = [];
 var continuarBusca = true;
 async function buscarTodosResultadosMegaSena() {
-    let concurso = 2900;
+    let concurso = 1;
     const endpointBase = "https://servicebus2.caixa.gov.br/portaldeloterias/api/megasena/";
 
     // notificacao.innerHTML += "Iniciando a busca por resultados...<br>";
@@ -46,12 +46,27 @@ async function buscarTodosResultadosMegaSena() {
     // notificacao.innerHTML += "Dados JSON gerados:" + jsonOutput + "<br>";
     console.log("Dados JSON gerados: ", jsonOutput);
     notificacao.innerText = jsonOutput;
+    downloadJson(jsonOutput);
 
     // Para salvar em um arquivo .json, em um ambiente de navegador web
     // você precisaria de um método para download ou um backend (Node.js/PHP)
     // para gravar o arquivo no sistema de arquivos.
 
     return jsonOutput;
+}
+
+function downloadJson(jsonOutput) {
+    const blob = new Blob([jsonOutput], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "application_data.json"; // The filename to be downloaded
+
+    document.body.appendChild(a); // Temporarily add to DOM
+    a.click(); // Programmatically click the link
+    document.body.removeChild(a); // Remove from DOM
+    URL.revokeObjectURL(url); // Clean up the URL object
 }
 
 // Para executar a função:

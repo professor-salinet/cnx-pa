@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download JSON</title>
+</head>
+<body>
+    <button onclick="downloadJson()">Download JSON File</button>
+
+    <script>
+        function downloadJson() {
+            const data = {
+                name: "My Application",
+                settings: {
+                    theme: "dark",
+                    notifications: true
+                },
+                users: [
+                    { id: 1, username: "userA" },
+                    { id: 2, username: "userB" }
+                ]
+            };
+
+            const jsonString = JSON.stringify(data, null, 2); // Pretty-print JSON
+
+            const blob = new Blob([jsonString], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "application_data.json"; // The filename to be downloaded
+
+            document.body.appendChild(a); // Temporarily add to DOM
+            a.click(); // Programmatically click the link
+            document.body.removeChild(a); // Remove from DOM
+            URL.revokeObjectURL(url); // Clean up the URL object
+        }
+    </script>
+</body>
+</html>
